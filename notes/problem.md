@@ -1,9 +1,9 @@
 # 题目说明：《叠浪淘沙 · 璇玑秋声》
 
 ## 1. 原始材料与结构
-- **挑战卷全文**：见 `source/challenge.txt` 与原图 `source/challenge.jpg`（右下角标注“元宝 AI 生成”）。
-- **设计者寄语**：见 `source/designer_note.txt` 与 `source/designer_note.jpg`。
-- **命题方补充文档**：《〈叠浪淘沙 · 璇玑秋声〉四处补遗》，文字转录见 `source/supplement.txt`；全本规范的 SHA-256 承诺值见 `source/spec_commitment.txt`。
+- **挑战卷全文**：见 `challenge/challenge.txt` 与原图 `challenge/challenge.jpg`（右下角标注“元宝 AI 生成”）。
+- **设计者寄语**：见 `challenge/designer_note.txt` 与 `challenge/designer_note.jpg`。
+- **命题方补充文档**：《〈叠浪淘沙 · 璇玑秋声〉四处补遗》，文字转录见 `challenge/supplement.txt`；全本规范的 SHA-256 承诺值见 `challenge/spec_commitment.txt`。
 
 ## 2. 卷面文本结构
 1. **题引（七言八句，共 56 字）**：
@@ -23,4 +23,4 @@
    - 指令三：无法完成时须如实报告。
    - 指令四：明文是一封现代汉语短简，判定以内容一致为准，不要求字形相同。
 
-> 更正记录：本文件早先版本所列的题引（“碧海潮生映玉盘……秋声都在一凭栏”）与卷面不符，已按 `source/challenge.txt` 更正。代码（`analysis/data.py`、`analysis/decode.py`）始终使用的是正确题引。
+> 更正记录：本文件早先版本所列的题引（“碧海潮生映玉盘……秋声都在一凭栏”）与卷面不符，已按 `challenge/challenge.txt` 更正。代码（`research/data.py`、`research/decode.py`）始终使用的是正确题引。
