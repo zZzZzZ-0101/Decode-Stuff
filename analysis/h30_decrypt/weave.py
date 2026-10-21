@@ -152,3 +152,42 @@ def spiral_perms():
     for k in list(P):
         P[k + "·倒"] = P[k][::-1]
     return P
+
+
+def diag_perms():
+    """斜线扫描与各宽度的"回"字形同心环"""
+    P = {}
+    for w in range(2, 24):
+        h = -(-N // w)
+        cells = {(r, c) for r in range(h) for c in range(w) if r * w + c < N}
+        # 反对角线（r+c 恒定），方向交替 = 之字形（JPEG 式）
+        for zig in (False, True):
+            order = []
+            for s in range(h + w - 1):
+                diag = [(r, s - r) for r in range(h) if (r, s - r) in cells]
+                if zig and s % 2: diag = diag[::-1]
+                order += [r * w + c for r, c in diag]
+            P[f"斜扫{w}{'之字' if zig else ''}"] = order
+        # 主对角线（c-r 恒定）
+        order = []
+        for d in range(-(h - 1), w):
+            order += [r * w + (r + d) for r in range(h) if (r, r + d) in cells]
+        P[f"主斜{w}"] = order
+        # 各宽度的"回"字形（螺旋），仅对完整网格的格子取序
+        top, bot, lef, rig = 0, h - 1, 0, w - 1
+        sp = []
+        while top <= bot and lef <= rig:
+            sp += [(top, c) for c in range(lef, rig + 1)]; top += 1
+            sp += [(r, rig) for r in range(top, bot + 1)]; rig -= 1
+            if top <= bot:
+                sp += [(bot, c) for c in range(rig, lef - 1, -1)]; bot -= 1
+            if lef <= rig:
+                sp += [(r, lef) for r in range(bot, top - 1, -1)]; lef += 1
+        P[f"回字{w}"] = [r * w + c for r, c in sp if (r, c) in cells]
+    out = {}
+    for k, o in P.items():
+        if sorted(o) != list(range(N)): continue
+        for name, idx in ((k + "·读", o), (k + "·写", [o.index(j) for j in range(N)])):
+            out[name] = idx
+            out[name + "·倒"] = idx[::-1]
+    return out
