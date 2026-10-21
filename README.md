@@ -19,6 +19,8 @@
 | `source/challenge.txt` | 正式挑战卷全文（四条指令、题引 8 句、正文 23 行） |
 | `source/challenge.jpg` | 挑战卷原图，右下角标注"元宝 AI 生成" |
 | `source/designer_note.txt` / `.jpg` | 设计者寄语。早期版本收录，正式挑战卷未收录 |
+| `source/supplement.txt` | 命题方提供的《四处补遗》文字转录 |
+| `source/spec_commitment.txt` | 全本规范的 SHA-256 承诺值 |
 
 **卷面结构**
 - 题引：七言 8 句，共 56 字。
@@ -215,7 +217,7 @@
 
 ## 14. 补遗后的解密进展
 
-命题方提供《四处补遗》后（`source/` 未收录其原件），按其中公式实现了密钥展开、正倒判定、语境子环移位与回声链（`analysis/h30_decrypt/`）。
+命题方提供《四处补遗》（文字转录见 `source/supplement.txt`；PDF 原件含疑似云服务凭证的嵌入数据，未收入仓库）后，按其中公式实现了密钥展开、正倒判定、语境子环移位与回声链（`analysis/h30_decrypt/`）。另一份独立实现（`analysis/decode.py`，由另一 AI 助手编写）建出的音节表、轮钥、密文音节与 115 个解密音节与之逐位一致。
 
 **已确认**
 - 种子取题引 56 字笔画；sbox 取"次数降序、同次数值升序"，参数按 v−1 对齐；声韵按 pypinyin strict 口径切分。按此生成的轮钥决定的正倒，使 115 对全部成为合法带调音节。其中 34 对的方向是唯一确定的（21 正、13 倒），轮钥奇偶全部吻合，偶然吻合的概率约 6×10⁻¹¹。
@@ -234,7 +236,7 @@
 
 ```
 README.md                      本报告
-source/                        原始材料（挑战卷文本与原图、设计者寄语）
+source/                        原始材料（挑战卷文本与原图、设计者寄语、四处补遗、规范哈希）
 analysis/data.py               正文、题引、拼音拆分（共享数据）
 analysis/legal.py              合法音节表（GB2312 6763 字）
 analysis/strokes.py            题引与正文全部用字的笔画表
@@ -246,6 +248,8 @@ analysis/h17_statistics/       第 7 节统计检验、字频分层
 analysis/h18_single_letter/    单字母读法与声调检验
 analysis/h20_fanqie_stream/    反切层上的周期笔画密钥与链式差分
 analysis/h30_decrypt/          按《四处补遗》实现的解密、织位候选与可读性打分（需将 jieba 词典路径设为 JIEBA_DICT）
+analysis/decode.py             《四处补遗》的另一份独立实现（交叉验证用）
+puzzle/                        分阶段工作记录（题目、观测、证伪、规律、日志）与验证脚本
 ```
 
 运行环境为 Python 3，依赖 `pypinyin`、`numpy`。示例：`python3 analysis/h03_fanqie_pairs/line_pairs.py`。各脚本可在任意工作目录下运行。
