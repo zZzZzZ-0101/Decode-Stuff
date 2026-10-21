@@ -1,0 +1,35 @@
+[卷面]   题引 56 字，正文 230 实字；首位回声 (I,F,T) = (3, 3, 6)
+[展卷]   sbox = [11, 15, 2, 5, 3, 0, 6, 1, 7, 4, 8, 12, 10, 13, 14, 16, 9]；rk[0] = (12, 2, 6)
+[音节表] 1194 个合法带调音节；声母 22 项，韵母 36 项
+[切]     正切 66 对、倒切 49 对；密文音节合法 115/115；方向唯一确定的 34 对中轮钥吻合 34
+[归]     解密完成；重新加密逐位复现 115 个密文音节
+[织位]   按 23×5 网格的回字形螺旋回填，逐行读出
+[核对]   汉字读法逐字默认读音与明文音节一致 112/115；差异（均为轻声字）：[(23, '们', 'men2', 'men5'), (44, '的', 'de2', 'de5'), (101, '的', 'de2', 'de5')]
+
+明文音节（每行 5 个，对应正文 23 行）：
+  er4     ling2   er4     san1    nian2  
+  qiu1    shuang1 ye4     ru2     ran2   
+  qian1   feng1   jin3    chi4    yi1    
+  jiang1  cheng2  bi4     zhou1   ji2    
+  zheng1  liu2    wo3     men2    ba3    
+  jiu3    dang1   ge1     bu4     yi4    
+  le4     hu1     er4     ling2   er4    
+  liu4    nian2   qiu1    you4    shi4   
+  yi1     nian2   feng1   shou1   de2    
+  shi2    jie2    mei3    hao3    zong3  
+  shi4    zai4    yi1     shun4   jian1  
+  que4    hen3    jiu3    hen3    jiu3   
+  dou1    nan2    yi3     wang4   huai2  
+  jin1    ri4     jiang1  zhe4    mei3   
+  hao3    juan1   ke4     ru4     zhe4   
+  fang1   ju3     zhen4   qian1   hui2   
+  bai3    zhuan3  zi4     li3     xing2  
+  jian1   luo4    bi3     chu4    bu4    
+  guo4    shi4    xiang3  rang4   zhe4   
+  xie1    xuan4   lan4    zai4    shi2   
+  jian1   de2     hong2   liu2    li3    
+  liu2    zhu4    de2     jiu3    yi1    
+  dian3   zai4    jiu3    yi1     dian3  
+
+明文：
+  二〇二三年秋，霜叶如燃，千枫尽赤，一江澄碧，舟楫争流。我们把酒当歌，不亦乐乎。二〇二六年秋，又是一年丰收的时节。美好总是在一瞬间，却很久很久都难以忘怀。今日将这美好镌刻入这方矩阵，千回百转，字里行间，落笔处不过是想让这些绚烂在时间的洪流里留驻得久一点，再久一点。

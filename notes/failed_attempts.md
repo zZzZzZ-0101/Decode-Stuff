@@ -23,11 +23,11 @@
    - 《四处补遗》指出 S-Box 排序有 4 种可能：`(-cnt, v)`、`(-cnt, -v)`、`(cnt, v)`、`(cnt, -v)`。
    - 用 115 对中 34 个单向反切强制对检验 `rk[i][0]` 奇偶性：
      - `(-cnt, v)`（次数降序、同次数以值升序）：**115/115 全部合法（34/34 强制对 100% 命中）**。
-     - 其余 3 种约定：`(-cnt, -v)` 96/115、`(cnt, v)` 99/115、`(cnt, -v)` 96/115，立即证伪（`puzzle/verification/verify_56state_pdf.py` 实测）。
+     - 其余 3 种约定：`(-cnt, -v)` 96/115、`(cnt, v)` 99/115、`(cnt, -v)` 96/115，立即证伪（`notes/verification/verify_56state_pdf.py` 实测）。
 2. **`pypinyin` 中 `lv`/`nv` 韵母提取陷阱**：
    - 直接调用 `get_finals("lv", strict=True)` 会返回空字符串 `""`，导致 `('l', 'v', 4)`（第 58 对“玉帘”）和 `('l', 'v', 3)`（第 71 对“雨柳”）被误判为非法。
    - 修正 `s.replace("v", "ü")` 后再提取韵母并统一为 `'v'`，反切合法率达到 **115/115（100%）**。
-   - 注：改用 `pypinyin.contrib.tone_convert.to_finals("lv4", strict=True)` 可直接得到 `'v'`，不受此问题影响；`analysis/h30_decrypt/` 与 `analysis/decode.py` 两套实现建出的音节表逐项相同（1194 个带调音节）。
+   - 注：改用 `pypinyin.contrib.tone_convert.to_finals("lv4", strict=True)` 可直接得到 `'v'`，不受此问题影响；`research/h30_decrypt/` 与 `research/decode.py` 两套实现建出的音节表逐项相同（1194 个带调音节）。
 
 ## 第三阶段：织位（"回文"回填顺序）搜索——均未成立
 

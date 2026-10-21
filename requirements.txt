@@ -1,0 +1,2 @@
+pypinyin>=0.47,<=0.55
+numpy>=1.24          # research/ 下的统计脚本需要；solution/solve.py 不需要
