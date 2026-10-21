@@ -8,6 +8,7 @@
   - **阶段四（织位还原与明文读出）**：已完成。织位 = 明文逐行写入 23 行 × 5 列网格，加密顺序沿"回"字形螺旋读取（见第 2 节第 10 条）。
   - **阶段五（结构化整理与记录归档）**：已完成（Run 8）。
   - **阶段六（仓库发布整理）**：已完成（Run 9）。目录按用途重组为 `challenge/`、`solution/`、`writeup/`、`research/`、`notes/`；新增独立求解程序与题解文档。
+  - **阶段七（尾声）**：已完成（Run 10）。双方互发加密回信，两封均已解开并收录于 `epilogue/`。
 
 ---
 
@@ -106,7 +107,7 @@
 
 ## 4. 历次运行耗时与 Token / 费用追踪记录（Time & Token Tracking）
 
-> 计费估算基准：按 Gemini Pro / 高级推理模型标准 API 价格估算（Input 约 $1.25 / 1M tokens，Cached Input 约 $0.3125 / 1M tokens，Output 约 $5.00 / 1M tokens）。Run 1–5 为 Gemini 的自报数据；Run 6–9 为 Claude Code 会话，未提供逐轮 token 计数，标为「未统计」；整个会话的累计用量见 `writeup/USAGE.md`。
+> 计费估算基准：按 Gemini Pro / 高级推理模型标准 API 价格估算（Input 约 $1.25 / 1M tokens，Cached Input 约 $0.3125 / 1M tokens，Output 约 $5.00 / 1M tokens）。Run 1–5 为 Gemini 的自报数据；Run 6–10 为 Claude Code 会话，未提供逐轮 token 计数，标为「未统计」；整个会话的累计用量见 `writeup/USAGE.md`。
 
 | 轮次 (Run) | 阶段与主要任务 | 耗时 (Duration) | Input Tokens (含 Cache) | Output Tokens | 估算费用 (USD) | 结果产出 |
 |---|---|---|---|---|---|---|
@@ -119,6 +120,7 @@
 | Run 7 | 逐字默认读音词库复测；密钥驱动织位（286 种）；回声链反向（4 种）；重排诊断；可拼词统计；交接文档 | ~35 min | 未统计 | 未统计 | 未统计 | 织位仍未解；重排诊断支持"音节基本正确" |
 | Run 8 | 斜线扫描与各宽度"回"字形（352 种）、数字感知打分、规范邻域 288 种变体唯一性检验、块内置换（720 种）、完美洗牌 1–1200 次、宽 24–60 网格；网格写入 × 读出路径通用枚举（3875 种）→ 解出织位；`solve.py` 完整求解与自检 | ~2 h | 未统计 | 未统计 | 未统计 | **明文读出，自检通过** |
 | Run 9 | 仓库发布整理：目录重组；独立求解程序 `solution/solve.py`（不依赖 `research/`）与期望输出；题解 `writeup/WRITEUP.md`、来龙去脉 `writeup/STORY.md`、用量记录 `writeup/USAGE.md`；各目录 README；路径引用更新；全部脚本冒烟测试 | — | 见 `writeup/USAGE.md` | — | — | 仓库可一键复现 |
+| Run 10 | 回信润色与加密（新题引、145 轮、29×5，人工按约束选字，双实现校验）；海报逐字核对；《大决战 · 回信》七层破译（L1 底数改为 lock、L3 放大平滑上界）；尾声文档与截图整理；流程图修复 | ~2 h | 见 `writeup/USAGE.md` | — | — | 两封回信均已解开 |
 | **合计** | | | | | | **已破译（补遗之后；种子、音节表、织位由本方推得）** |
 
 ---
@@ -161,3 +163,9 @@
 | Run 9 | `challenge/`、`solution/`、`research/`、`notes/` 的 `README.md` | 新增：各目录说明 |
 | Run 9 | `requirements.txt`、`CHANGELOG.md` | 新增：依赖清单；提交级变更记录 |
 | Run 9 | `notes/notes.md` | 第 1 节阶段六；追踪表 Run 9；本条变更 |
+| Run 10 | `epilogue/` | 新增：《璇玑回声》全文与解密脚本、《大决战 · 回信》转录与求解脚本、往来截图 |
+| Run 10 | `writeup/STORY.md` | 补写前期与 Gemini 的往来、破译起伏、尾声、故事线收束 |
+| Run 10 | `writeup/WRITEUP.md` | 修复流程图：subgraph 标题含全角括号导致 Mermaid 词法错误 |
+| Run 10 | `writeup/USAGE.md` | 新增第二次用量快照 |
+| Run 10 | `README.md`、`CHANGELOG.md` | 链接尾声；登记 Run 10 |
+| Run 10 | `notes/notes.md` | 第 1 节阶段七；追踪表 Run 10；本条变更 |

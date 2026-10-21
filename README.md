@@ -15,6 +15,8 @@
 
 115 个音节，与正文 23 行 × 5 对一一对应。依挑战卷指令四，判定以音节序列一致为准，同音字取舍不影响结果。
 
+破译之后，O.o 和黄同志各用对方的规则写了一封加密回信，两封都已解开，见 [**尾声：A-Level 前的最后一个小游戏**](epilogue/README.md)。
+
 ## 解法
 
 ### 流程
@@ -170,6 +172,7 @@ python3 solution/solve.py
 │   ├── REPORT.md             完整分析报告（按时间顺序，含全部假设检验与统计）
 │   ├── STORY.md              来龙去脉与时间线
 │   └── USAGE.md              各环节 token 与费用记录
+├── epilogue/                 尾声：双方的加密回信、求解程序与往来截图
 ├── research/                 探索性实验脚本（20 余族假设、织位搜索、统计检验），见其 README
 └── notes/                    分轮工作日志（题目 / 观测 / 证伪 / 规律 / 推导日志 / 变更记录）与验证脚本
 ```
@@ -182,6 +185,7 @@ python3 solution/solve.py
 | [writeup/REPORT.md](writeup/REPORT.md) | 分析报告：卷面盲测的 20 项假设族、统计检验、可解性评估、补遗后的解密进展与明文 |
 | [writeup/STORY.md](writeup/STORY.md) | 来龙去脉：游戏背景、前一局"大决战"、本卷的出现、交锋与补遗、破译时间线 |
 | [writeup/USAGE.md](writeup/USAGE.md) | token 与费用：Claude Code 会话、6 个子 Agent、Gemini 各轮 |
+| [epilogue/README.md](epilogue/README.md) | 尾声：《璇玑回声》与《大决战 · 回信》的加密、破译与往来截图 |
 | [challenge/README.md](challenge/README.md) | 原始材料说明与出处 |
 | [solution/README.md](solution/README.md) | 求解程序说明 |
 | [research/README.md](research/README.md) | 实验脚本目录：每个脚本检验什么、怎么运行、结论 |
@@ -201,6 +205,6 @@ python3 solution/solve.py
 
 ## 说明
 
-- 文中称挑战卷作者为"命题方"，破译一方为"解题方"，不使用真实姓名。
+- 分析文档（REPORT、WRITEUP）称挑战卷作者为"命题方"，破译一方为"解题方"；来龙去脉（STORY）与尾声用两人的称呼：黄同志（出题）与 O.o（破译，GitHub：zZzZzZ-0101）。
 - 命题方提供的《四处补遗》原件 PDF 含疑似云服务凭证的嵌入数据，已被 GitHub 推送保护拦截，仓库只收录其文字转录（`challenge/supplement.txt`）；命题方与解题方之间的私人往来信件不收录，其要点见 `writeup/REPORT.md` 第 2 节与 `writeup/STORY.md`。
 - `research/` 下部分打分脚本需要 jieba 词频表（`dict.txt`），获取方式见 [research/README.md](research/README.md)；`solution/solve.py` 不需要。
